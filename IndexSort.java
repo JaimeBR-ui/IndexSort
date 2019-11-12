@@ -15,29 +15,29 @@ public class IndexSort
      public static void main(String[] args)
      {
           long startTime, endTime;
-          int [] arr = new int[100000000]; // array of 10 million
+          int [] arr = new int[100000000]; // Array of length 10 million.
 
-          // Fill the array
+          // Fill the array.
           for (int i = 0; i < arr.length; i++)
-               arr[i] = (int)(Math.random()*10000); // range from 0 - 9999
+               arr[i] = (int)(Math.random()*10000); // Range from 0 - 9999.
 
-          // Print the Array
+          // Print the array.
           for (int i = 0; i < arr.length; i++)
                 System.out.print(arr[i] + " ");
 
-          // Index sort
+          // Index sort.
           System.out.println("Sorting stating");
           startTime = System.nanoTime();
-          Stonk.stonkSort(arr);
+          IndexSort(arr);
           endTime = System.nanoTime();
           System.out.println("Index Sort Took: "+
                          (endTime - startTime) / (Math.pow(10,9))
                          + " s");
-          // These values come from a dataset of range 0 - 9999
+          // These values come from a dataset of range 0 - 9999.
           // Takes approx 0.065 seconds to sort 10 million elements.
           // Takes approx 0.455 seconds to sort 100 million elements.
 
-          // Print the array again
+          // Print the sorted array.
           for (int i = 0; i < arr.length; i++)
                 System.out.print(arr[i] + " ");
 
@@ -47,7 +47,7 @@ public class IndexSort
      {
           // TODO: Sort integers! For now, it works for non negative integers
 
-          MiniNode [] retArray = new MiniNode[maxValue(array)];
+          MiniNode [] retArray = new MiniNode[maxValue(array) + 1];
 
           for(int i = 0; i < array.length; i++)
           {
@@ -68,6 +68,7 @@ public class IndexSort
 
      public static int maxValue(int [] array)
      {
+          // Return the maximum value in the array.
           // Should use Integer wrapper class.
           if (array == null || array.length == 0)
                return -1;
@@ -77,8 +78,7 @@ public class IndexSort
           for (int i = 1; i < array.length; i++)
                if (array[i] > max)
                     max = array[i];
-
-          max += 1;
+          
           return max;
      }
 }
